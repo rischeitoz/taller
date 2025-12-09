@@ -15,11 +15,22 @@
         h1 {
             font-size: 60px;
             margin-bottom: 20px;
+            /* Animación de parpadeo */
+            animation: parpadeo 1s infinite;
         }
 
         p {
             font-size: 22px;
             color: white;
+        }
+
+        /* Animación de luces parpadeantes */
+        @keyframes parpadeo {
+            0%   { color: red; text-shadow: 0 0 5px red; }
+            25%  { color: yellow; text-shadow: 0 0 20px yellow; }
+            50%  { color: lime; text-shadow: 0 0 30px lime; }
+            75%  { color: orange; text-shadow: 0 0 20px orange; }
+            100% { color: red; text-shadow: 0 0 5px red; }
         }
     </style>
 </head>
