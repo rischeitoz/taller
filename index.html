@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario registro davante</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario registro Davante</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -10,44 +11,72 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
         }
 
         .fake-form {
             background: white;
             padding: 25px;
-            width: 320px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 380px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             text-align: center;
         }
 
         .fake-form img {
-            width: 120px;        /* tamaño del logo */
-            margin-bottom: 15px; /* separación */
+            width: 140px;
+            margin-bottom: 20px;
         }
 
         .fake-form h2 {
             color: #333;
-            margin: 0 0 15px 0;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
         }
 
         input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+            margin: 12px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 1rem;
         }
 
         button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: #0078FF;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0060CC;
+        }
+
+        /* 📱 Ajustes para móviles muy pequeños */
+        @media (max-width: 360px) {
+            .fake-form {
+                padding: 18px;
+            }
+            .fake-form img {
+                width: 110px;
+            }
+            .fake-form h2 {
+                font-size: 1.4rem;
+            }
+            input, button {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -55,7 +84,6 @@
 
 <div class="fake-form">
 
-    <!-- 🔥 Logo de Davante -->
     <img src="descarga.png" alt="Logo Davante">
 
     <h2>Iniciar sesión</h2>
@@ -68,7 +96,7 @@
 
 <script>
     function redirigir() {
-        window.location.href = "simulacion.html";
+        window.location.href = "hackeo.html";
     }
 </script>
 
