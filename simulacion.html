@@ -2,18 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<!-- 🔥 Pantalla completa real en móviles -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <title>Simulación de Ciberataque</title>
-
 <style>
     html, body {
         margin: 0;
         padding: 0;
         width: 100%;
-        height: 100dvh; /* Altura real del dispositivo */
+        height: 100%;
         overflow: hidden;
         background: black;
         color: #00ff00;
@@ -23,19 +18,18 @@
     #container {
         width: 100%;
         height: 100%;
-        padding: 15px;
+        padding: 20px;
         box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
     }
 
     #terminal {
-        flex: 1; /* Ocupa todo el espacio disponible */
+        width: 100%;
+        height: calc(100% - 120px);
         border: 1px solid #00ff00;
         padding: 10px;
-        overflow-y: auto;
+        overflow-y: scroll;
         background: rgba(0, 0, 0, 0.8);
-        font-size: 14px;
+        white-space: pre-line;
     }
 
     .progress {
@@ -71,22 +65,32 @@
     const terminal = document.getElementById("terminal");
     const bar = document.getElementById("bar");
 
-    const lines = [
-        "Iniciando escaneo del dispositivo...",
-        "Conectando a servidor remoto...",
-        "Extrayendo metadatos...",
-        "Bypass firewall...",
-        "Descargando paquetes del archivo...",
-        "Descifrando claves privadas...",
-        "Datos Robados."
+    const lineas = [
+        "[OK] Iniciando sistema...",
+        "[OK] Cargando módulos de red...",
+        "[OK] Conexión establecida con servidor 192.168.0.14",
+        "[OK] Autenticando usuario...",
+        "[OK] Acceso autorizado.",
+        "Ejecutando exploit secreto...",
+        "Inyectando payload...",
+        "Payload ejecutado correctamente.",
+        "Descargando datos cifrados...",
+        "Progreso: 10%",
+        "Progreso: 30%",
+        "Progreso: 55%",
+        "Progreso: 80%",
+        "Progreso: 100%",
+        "Datos adquiridos.",
+        "Cifrando información.",
+        "Operación completada. Cerrando conexión..."
     ];
 
     let index = 0;
     let progress = 0;
 
-    function addLine() {
-        if (index < lines.length) {
-            terminal.innerHTML += "> " + lines[index] + "<br>";
+    function escribirLinea() {
+        if (index < lineas.length) {
+            terminal.innerHTML += lineas[index] + "\n";
             terminal.scrollTop = terminal.scrollHeight;
             index++;
         }
@@ -99,14 +103,18 @@
         }
     }
 
-    setInterval(addLine, 800);
+    // Imprime líneas
+    setInterval(escribirLinea, 350);
+
+    // Actualiza barra
     setInterval(updateProgress, 50);
 
-    // Redirección automática
+    // Redirección automática (ajusta si quieres)
     setTimeout(() => {
-        window.location.href = "final.html";  
-    }, 6200);
+        window.location.href = "final.html";
+    }, 7000);
 </script>
 
 </body>
 </html>
+
