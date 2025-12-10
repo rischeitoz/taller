@@ -2,8 +2,6 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
-    <!-- Imprescindible para que se vea bien en teléfonos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Formulario registro davante</title>
@@ -15,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Mejor que height fija */
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
         }
@@ -39,7 +37,7 @@
         .fake-form h2 {
             color: #333;
             margin-bottom: 18px;
-            font-size: 6vw; /* Escala automático */
+            font-size: 6vw;
         }
 
         input {
@@ -68,7 +66,6 @@
             background: #005FCC;
         }
 
-        /* Ajuste automático para pantallas grandes */
         @media (min-width: 768px) {
             .fake-form h2 {
                 font-size: 24px;
@@ -85,17 +82,28 @@
     <img src="descarga.png" alt="Logo Davante">
     <h2>Iniciar sesión</h2>
 
-    <input type="text" id="usuario" placeholder="Correo electrónico">
-    <input type="password" id="password" placeholder="Contraseña">
+    <!-- Ahora es email y obligatorio -->
+    <input type="email" id="usuario" placeholder="Correo electrónico" required>
+
+    <input type="password" id="password" placeholder="Contraseña" required>
 
     <button onclick="redirigir()">Entrar</button>
 </div>
 
 <script>
 function redirigir() {
+    const usuario = document.getElementById("usuario");
+
+    // Si el correo no es válido, se muestra el mensaje nativo del navegador
+    if (!usuario.checkValidity()) {
+        usuario.reportValidity();
+        return;
+    }
+
     window.location.href = "simulacion.html";
 }
 </script>
 
 </body>
 </html>
+
