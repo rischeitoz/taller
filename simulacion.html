@@ -2,42 +2,55 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+
+<!-- Clave para móviles -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Simulación de Ciberataque</title>
+
 <style>
     html, body {
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
-        overflow: hidden;
         background: black;
         color: #00ff00;
         font-family: "Courier New", monospace;
+        overflow: hidden; /* Para evitar movimientos inesperados en móviles */
     }
 
     #container {
         width: 100%;
         height: 100%;
-        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
         box-sizing: border-box;
     }
 
+    h2 {
+        margin: 0 0 10px 0;
+        text-align: center;
+        font-size: 6vw; /* Escala automática en móviles */
+    }
+
     #terminal {
-        width: 100%;
-        height: calc(100% - 120px);
+        flex: 1;
         border: 1px solid #00ff00;
         padding: 10px;
-        overflow-y: scroll;
-        background: rgba(0, 0, 0, 0.8);
-        white-space: pre-line;
+        overflow-y: auto;
+        background: rgba(0,0,0,0.85);
+        font-size: 4vw; /* Texto adaptable */
+        line-height: 1.4em;
     }
 
     .progress {
         width: 100%;
-        height: 25px;
+        height: 28px;
         background: #022;
         border: 1px solid #0f0;
-        margin-top: 10px;
+        margin-top: 12px;
     }
 
     .progress-bar {
@@ -47,50 +60,46 @@
         transition: width 0.1s linear;
     }
 
-    h2 {
-        margin: 0 0 10px 0;
-        text-align: center;
+    /* En pantallas grandes vuelve a tamaños normales */
+    @media (min-width: 768px) {
+        h2 { font-size: 28px; }
+        #terminal { font-size: 16px; }
     }
 </style>
 </head>
+
 <body>
 
 <div id="container">
     <h2>HACKEO EN CURSO</h2>
+
     <div id="terminal"></div>
-    <div class="progress"><div class="progress-bar" id="bar"></div></div>
+
+    <div class="progress">
+        <div class="progress-bar" id="bar"></div>
+    </div>
 </div>
 
 <script>
     const terminal = document.getElementById("terminal");
     const bar = document.getElementById("bar");
 
-    const lineas = [
-        "[OK] Iniciando sistema...",
-        "[OK] Cargando módulos de red...",
-        "[OK] Conexión establecida con servidor 192.168.0.14",
-        "[OK] Autenticando usuario...",
-        "[OK] Acceso autorizado.",
-        "Ejecutando exploit secreto...",
-        "Inyectando payload...",
-        "Payload ejecutado correctamente.",
-        "Descargando datos cifrados...",
-        "Progreso: 10%",
-        "Progreso: 30%",
-        "Progreso: 55%",
-        "Progreso: 80%",
-        "Progreso: 100%",
-        "Datos adquiridos.",
-        "Cifrando información.",
-        "Operación completada. Cerrando conexión..."
+    const lines = [
+        "Iniciando escaneo del dispositivo...",
+        "Conectando a servidor remoto...",
+        "Extrayendo metadatos...",
+        "Bypass firewall...",
+        "Descargando paquetes del archivo...",
+        "Descifrando claves privadas...",
+        "Datos robados."
     ];
 
     let index = 0;
     let progress = 0;
 
-    function escribirLinea() {
-        if (index < lineas.length) {
-            terminal.innerHTML += lineas[index] + "\n";
+    function addLine() {
+        if (index < lines.length) {
+            terminal.innerHTML += "> " + lines[index] + "<br>";
             terminal.scrollTop = terminal.scrollHeight;
             index++;
         }
@@ -103,18 +112,16 @@
         }
     }
 
-    // Imprime líneas
-    setInterval(escribirLinea, 350);
-
-    // Actualiza barra
+    setInterval(addLine, 800);
     setInterval(updateProgress, 50);
 
-    // Redirección automática (ajusta si quieres)
+    // Redirección automática
     setTimeout(() => {
         window.location.href = "final.html";
-    }, 7000);
+    }, 6200);
 </script>
 
 </body>
 </html>
+
 
