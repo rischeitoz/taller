@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- Clave para móviles -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Simulación de Ciberataque</title>
@@ -17,7 +16,7 @@
         background: black;
         color: #00ff00;
         font-family: "Courier New", monospace;
-        overflow: hidden; /* Para evitar movimientos inesperados en móviles */
+        overflow: hidden;
     }
 
     #container {
@@ -32,7 +31,7 @@
     h2 {
         margin: 0 0 10px 0;
         text-align: center;
-        font-size: 6vw; /* Escala automática en móviles */
+        font-size: 6vw;
     }
 
     #terminal {
@@ -41,7 +40,7 @@
         padding: 10px;
         overflow-y: auto;
         background: rgba(0,0,0,0.85);
-        font-size: 4vw; /* Texto adaptable */
+        font-size: 4vw;
         line-height: 1.4em;
     }
 
@@ -60,7 +59,6 @@
         transition: width 0.1s linear;
     }
 
-    /* En pantallas grandes vuelve a tamaños normales */
     @media (min-width: 768px) {
         h2 { font-size: 28px; }
         #terminal { font-size: 16px; }
@@ -85,13 +83,32 @@
     const bar = document.getElementById("bar");
 
     const lines = [
-        "Iniciando escaneo del dispositivo...",
-        "Conectando a servidor remoto...",
+        "Inicializando terminal segura...",
+        "Cargando módulos del sistema...",
+        "Estableciendo conexión con nodo maestro...",
+        "Analizando infraestructura del dispositivo...",
+        "Mapeando puertos abiertos...",
+        "Escaneo profundo iniciado...",
+        "Analizando paquetes entrantes...",
+        "Interceptando flujo de datos...",
+        "Intentando elevar privilegios...",
+        "Bypass de seguridad en proceso...",
+        "Conexión cifrada establecida.",
         "Extrayendo metadatos...",
-        "Bypass firewall...",
-        "Descargando paquetes del archivo...",
-        "Descifrando claves privadas...",
-        "Datos robados."
+        "Analizando archivos temporales...",
+        "Reconstruyendo rutas del sistema...",
+        "Comprobando vulnerabilidades conocidas...",
+        "Ejecutando secuencia avanzada...",
+        "Descargando paquetes del archivo remoto...",
+        "Procesando paquetes...",
+        "Descifrando claves internas...",
+        "Forzando autenticación...",
+        "Accediendo a registros locales...",
+        "Copiando datos recolectados...",
+        "Compilando información...",
+        "Verificando integridad...",
+        "Transmisión final en curso...",
+        "Operación completada."
     ];
 
     let index = 0;
@@ -112,16 +129,16 @@
         }
     }
 
-    setInterval(addLine, 800);
-    setInterval(updateProgress, 50);
+    // Más rápido para ajustarse a 15 segundos
+    setInterval(addLine, 500);   // 0.5 s por línea
+    setInterval(updateProgress, 30); // progreso más veloz
 
-    // Redirección automática
+    // Redirección a los 15 segundos exactos
     setTimeout(() => {
         window.location.href = "final.html";
-    }, 6200);
+    }, 15000);
 </script>
 
 </body>
 </html>
-
 
